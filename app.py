@@ -150,20 +150,21 @@ def main():
         ann_app()
 
     elif choice == "Metrics":
-        if not st.session_state.logged_in:
-            st.warning("⚠ Please login to access the Metrics page.")
-            st.stop()
+    if not st.session_state.logged_in:
+        st.warning("⚠ Please login to access the Metrics page.")
+        st.stop()
 
-        st.markdown('<p class="section-header">📊 Model Metrics and Performance</p>', unsafe_allow_html=True)
-        exp_path = r"C:\\Users\\Deepika\\OneDrive\\Documents\\proj\\final_year_project-main\\exp.html"
-        if os.path.isfile(exp_path):
-            try:
-                with open(exp_path, 'r', encoding='utf-8') as f:
-                    html_content = f.read()
-                st.markdown("<h2 style='text-align: center; color: #4CAF50;'>📈 Model Performance Metrics</h2>", unsafe_allow_html=True)
-                st.components.v1.html(html_content, height=800)
-            except Exception as e:
-                st.error(f"⚠ Error loading metrics: {e}")
+    st.markdown('<p class="section-header">📊 Model Metrics and Performance</p>', unsafe_allow_html=True)
+
+    try:
+        with open(r"C:\Users\Deepika\OneDrive\Documents\proj\final_year_project-main\exp.html", "r", encoding='utf-8') as f:
+            html_content = f.read()
+        st.components.v1.html(html_content, height=800)
+    except FileNotFoundError:
+        st.error("🚫 Metrics file not found. Please check the file path.")
+    except Exception as e:
+        st.error(f"⚠ Error loading metrics: {e}")
+
 
     else:
         if not st.session_state.logged_in:
