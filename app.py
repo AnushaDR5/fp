@@ -150,20 +150,20 @@ def main():
         ann_app()
 
     elif choice == "Metrics":
-    if not st.session_state.logged_in:
-        st.warning("⚠ Please login to access the Metrics page.")
-        st.stop()
-
-    st.markdown('<p class="section-header">📊 Model Metrics and Performance</p>', unsafe_allow_html=True)
-
-    try:
-        with open(r"C:\Users\Deepika\OneDrive\Documents\proj\final_year_project-main\exp.html", "r", encoding='utf-8') as f:
-            html_content = f.read()
-        st.components.v1.html(html_content, height=800)
-    except FileNotFoundError:
-        st.error("🚫 Metrics file not found. Please check the file path.")
-    except Exception as e:
-        st.error(f"⚠ Error loading metrics: {e}")
+        if not st.session_state.logged_in:
+            st.warning("⚠ Please login to access the Metrics page.")
+            st.stop()
+    
+        st.markdown('<p class="section-header">📊 Model Metrics and Performance</p>', unsafe_allow_html=True)
+    
+        try:
+            with open(r"C:\Users\Deepika\OneDrive\Documents\proj\final_year_project-main\exp.html", "r", encoding='utf-8') as f:
+                html_content = f.read()
+            st.components.v1.html(html_content, height=800)
+        except FileNotFoundError:
+            st.error("🚫 Metrics file not found. Please check the file path.")
+        except Exception as e:
+            st.error(f"⚠ Error loading metrics: {e}")
 
 
     else:
