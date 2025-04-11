@@ -167,14 +167,15 @@ def main():
             ann_app()
         
     elif choice == "Metrics":
-            if not st.session_state.logged_in:
-                st.warning("⚠️ Please login to access the Metrics page.")
-                st.stop()
+    if not st.session_state.logged_in:
+        st.warning("⚠ Please login to access the Metrics page.")
+        st.stop()
 
-            st.markdown('<p class="section-header">📊 Model Metrics and Performance</p>', unsafe_allow_html=True)
+    st.markdown('<p class="section-header">📊 Model Metrics and Performance</p>', unsafe_allow_html=True)
 
-            import os
-            exp_path = r"C:\Users\Deepika\OneDrive\Documents\proj\final_year_project-main\exp.html"
+    import os
+    exp_path = r"C:\Users\Deepika\OneDrive\Documents\proj\final_year_project-main\exp.html"
+
 
             # Check if file exists and load
             if os.path.isfile(exp_path):
