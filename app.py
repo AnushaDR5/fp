@@ -157,7 +157,7 @@ def main():
         st.markdown('<p class="section-header">📊 Model Metrics and Performance</p>', unsafe_allow_html=True)
     
         try:
-            with open(r"C:\Users\Deepika\OneDrive\Documents\proj\final_year_project-main\exp.html", "r", encoding='utf-8') as f:
+            with open(r"C:\Users\Deepika\OneDrive\Desktop\final_year_project-main\exp.html", "r", encoding='utf-8') as f:
                 html_content = f.read()
             st.components.v1.html(html_content, height=800)
         except FileNotFoundError:
